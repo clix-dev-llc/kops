@@ -180,7 +180,7 @@ func (v *ValidationCluster) collectComponentFailures(client kubernetes.Interface
 }
 
 func (v *ValidationCluster) collectPodFailures(client kubernetes.Interface) error {
-	pods, err := client.CoreV1().Pods("kube-system").List(metav1.ListOptions{})
+	pods, err := client.CoreV1().Pods(namespace).List(metav1.ListOptions{})
 	if err != nil {
 		return fmt.Errorf("error listing Pods: %v", err)
 	}
